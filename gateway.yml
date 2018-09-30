@@ -13,27 +13,18 @@ zuul:
   routes:
     sensitiveHeaders:
     users:
-      serviceId: user
+      serviceId: userService
       path: /users/**
       stripPrefix: false
 
     todos:
-      serviceId: todo
+      serviceId: todoService
       path: /todos/**
       stripPrefix: false
 
 spring:
   cloud:
     consul:
-      host: localhost
-      port: 8500
       discovery:
         health-check-path: /api/health
 
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 15000
